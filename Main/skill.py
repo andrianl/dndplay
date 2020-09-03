@@ -1,4 +1,4 @@
-from Main.ability import Ability, Strength, Dexterity, Intelligence, Wisdom, Charisma, Constitution
+from Main.stats import Ability, Strength, Dexterity, Intelligence, Wisdom, Charisma, Constitution
 
 
 class Skill:

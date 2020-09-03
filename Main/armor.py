@@ -1,3 +1,5 @@
+
+
 class Armor:
     name = "Unknown Armor"
     cost = "0 gp"
@@ -13,10 +15,12 @@ class LightArmor(Armor):
 
 
 class MediumArmor(Armor):
+    dexterity_mod_max = 2
     pass
 
 
 class HeavyArmor(Armor):
+    dexterity_mod_max = None
     strength_required = 13
     stealth_disadvantage = True
 
