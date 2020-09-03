@@ -532,14 +532,14 @@ class SpearOfLightning(Spear):
 # Some lists of weapons for easy proficiency resolution
 simple_melee_weapons = {Club, Dagger, Greatclub, Handaxe, Javelin, LightHammer, Mace, Quarterstaff, Sickle, Spear}
 simple_ranged_weapons = {LightCrossbow, Dart, Shortbow, Sling}
-simple_weapons = simple_melee_weapons + simple_ranged_weapons
+simple_weapons = simple_melee_weapons & simple_ranged_weapons
 
 martial_melee_weapons = {Battleaxe, Flail, Glaive, Greataxe, Greatsword, Halberd, Lance, Longsword, Maul, Morningstar,
                          Pike, Rapier, Scimitar, Shortsword, ThrowingHammer, Trident, WarPick, Warhammer, Whip}
 martial_ranged_weapons = {Blowgun, HandCrossbow, HeavyCrossbow, Longbow, Net}
-martial_weapons = martial_melee_weapons + martial_ranged_weapons
+martial_weapons = martial_melee_weapons & martial_ranged_weapons
 
 monk_weapons = {Shortsword, Unarmed, Club, Dagger, Handaxe, Javelin, LightHammer, Mace, Quarterstaff, Sickle, Spear,
                 SunBolt}
 
-firearms = Set[Firearm, Blunderbuss, Pistol, Musket]
+# firearms = Set[Firearm, Blunderbuss, Pistol, Musket]
