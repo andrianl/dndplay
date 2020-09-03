@@ -10,6 +10,4 @@ class Character:
         self.Wisdom = Wisdom
         self.Charisma = Charisma
 
-    @staticmethod
-    def stat_modificator(stat):
-        return math.floor((stat - 10) / 2)
+
