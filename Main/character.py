@@ -1,15 +1,16 @@
+import Main.armor as armor
+import Main.backgrounds  as backgrounds
+import Main.classes as clses
+import Main.dice as dice
 import Main.race as race
 import Main.stats as stat
-import Main.classes as clsses
-import Main.background  as background
-from Main.dice import Dice as dice
-import Main.armor as armor
+import Main.weapon as weapon
 
 
 class Character:
     Race = race.Race
-    clss  = clsses.CharClass
-    background = background.Background
+    clss = clses.CharClass
+    background = backgrounds.Background
 
     Strength = stat.Ability
     Dexterity = stat.Ability
@@ -51,32 +52,13 @@ class Character:
 
     level = 1
 
-    # def __init__(self, abilities=[10, 10, 10, 10, 10, 10],
-    #              level,
-    #              race_instance,
-    #              armor_instance,
-    #              speed):
-    #     self.Strength = abilities[0]
-    #     self.Dexterity = abilities[1]
-    #     self.Constitution = abilities[2]
-    #     self.Intelligence = abilities[3]
-    #     self.Wisdom = abilities[4]
-    #     self.Charisma = abilities[5]
-    #     self.level = level
-    #     if isinstance(race_instance, race.Race):
-    #         self.Race = race_instance
-    #     if isinstance(armor_instance, armor.Armor):
-    #         self.armor_class = armor_instance
-    #     self.speed = speed
-    #     pass
-
-    def __init__(self, race, clss, background, level, armor_, weapon, abilities= []):
+    def __init__(self, race, clss, background, level, armor_, weapon, abilities=[]):
         self.Race = race
         self.clss = clss
         self.background = background
         self.level = level
 
-        self.max_health_point = dice.roll([self.level, clss.hit_dice])
+        self.max_health_point = dice.Dice.roll([self.level, clss.hit_die])
         self.armor_class = stat.ArmorClass(armor_, armor.Armor)
 
         self.Strength = stat.Ability('Strength', abilities[0])
@@ -87,6 +69,7 @@ class Character:
         self.Charisma = stat.Ability('Charisma', abilities[5])
 
         self.initiative = self.Dexterity
+        self.speed = self.Race.speed
 
         self.acrobatics = stat.Skill('Acrobatics', self.Dexterity)
         self.animal_handling = stat.Skill('Animal_handling', self.Wisdom)
@@ -107,4 +90,27 @@ class Character:
         self.stealth = stat.Skill('Stealth', self.Dexterity)
         self.survival = stat.Skill('Survival', self.Wisdom)
 
-        pass
+    def __str__(self):
+        return f"""
+Race: {self.Race.name}
+Class: {self.clss.name}
+Background: {self.background.name}
+Strength: {self.Strength.score}
+Dexterity: {self.Dexterity.score} 
+Constitution: {self.Constitution.score}
+Intelligence: {self.Intelligence.score}
+Wisdom: {self.Wisdom.score}
+Charisma: {self.Charisma.score}
+HP: {self.max_health_point}
+Armour Class: {self.armor_class.ac}
+Initiative: {self.initiative}
+Speed: {self.speed}
+"""
+
+
+random_stats = [dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20]),
+                dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20])]
+
+Andy = Character(race.Dwarf, clses.Barbarian, backgrounds.Soldier, 1, armor.ChainMail, weapon.Handaxe, random_stats)
+
+print(Andy)

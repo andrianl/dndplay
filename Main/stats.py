@@ -42,8 +42,14 @@ class Skill:
             return self.modifier
 
 
+
 class ArmorClass:
     ac = 0
+
+    def __init__(self, instance, armor):
+        self.instance = instance
+        self.armor = armor
+        pass
 
     def __get__(self, instance, armor):
         if isinstance(instance, LightArmor):

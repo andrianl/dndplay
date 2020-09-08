@@ -1,7 +1,12 @@
 import random
 
+D20 = 20
+D4 = 4
+D8 = 8
+D12 = 12
+D10 = 10
+D100 = 100
 
-# import constants.dices as dice_
 
 
 class Dice:
