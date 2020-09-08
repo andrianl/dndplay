@@ -1,5 +1,6 @@
 import random
 
+
 # import constants.dices as dice_
 
 
@@ -19,5 +20,3 @@ class Dice:
     @staticmethod
     def roll_with_disadvantage(dice):
         return min(Dice.roll(dice), Dice.roll(dice))
-
-

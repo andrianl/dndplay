@@ -1,5 +1,3 @@
-
-
 class Armor:
     name = "Unknown Armor"
     cost = "0 gp"

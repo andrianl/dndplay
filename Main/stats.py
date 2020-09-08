@@ -1,12 +1,13 @@
 import math
-from Main.armor import Armor, LightArmor, MediumArmor, HeavyArmor
 
+from Main.armor import LightArmor, MediumArmor, HeavyArmor
 from Main.dice import Dice
 from constants.dices import D20
 
 
 class Ability:
     name = ''
+    score = 10
     modifier = 0
 
     def __init__(self, name, score=10):
@@ -16,6 +17,10 @@ class Ability:
 
     def __str__(self):
         return f'{self.name} : {self.score} : {self.modifier}'
+
+    def __get__(self, instance, ability):
+        if isinstance(instance, Ability):
+            return self.score
 
 
 class Skill:
@@ -32,6 +37,10 @@ class Skill:
     def __str__(self):
         return f'{self.name} : {self.modifier}'
 
+    def __get__(self, instance, skill):
+        if isinstance(instance, Skill):
+            return self.modifier
+
 
 class ArmorClass:
     ac = 0
@@ -47,12 +56,6 @@ class ArmorClass:
             pass
 
         return self.ac
-
-
-
-
-
-
 
 
 Strength = Ability("Strength", Dice.roll([1, D20]))
