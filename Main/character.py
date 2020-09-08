@@ -1,10 +1,15 @@
 import Main.race as race
 import Main.stats as stat
+import Main.classes as clsses
+import Main.background  as background
+from Main.dice import Dice as dice
 import Main.armor as armor
 
 
 class Character:
     Race = race.Race
+    clss  = clsses.CharClass
+    background = background.Background
 
     Strength = stat.Ability
     Dexterity = stat.Ability
@@ -65,5 +70,41 @@ class Character:
     #     self.speed = speed
     #     pass
 
-    def __init__(self, race, class_, background, level, armor, weapon):
+    def __init__(self, race, clss, background, level, armor_, weapon, abilities= []):
+        self.Race = race
+        self.clss = clss
+        self.background = background
+        self.level = level
+
+        self.max_health_point = dice.roll([self.level, clss.hit_dice])
+        self.armor_class = stat.ArmorClass(armor_, armor.Armor)
+
+        self.Strength = stat.Ability('Strength', abilities[0])
+        self.Dexterity = stat.Ability('Dexterity', abilities[1])
+        self.Constitution = stat.Ability('Constitution', abilities[2])
+        self.Intelligence = stat.Ability('Intelligence', abilities[3])
+        self.Wisdom = stat.Ability('Wisdom', abilities[4])
+        self.Charisma = stat.Ability('Charisma', abilities[5])
+
+        self.initiative = self.Dexterity
+
+        self.acrobatics = stat.Skill('Acrobatics', self.Dexterity)
+        self.animal_handling = stat.Skill('Animal_handling', self.Wisdom)
+        self.arcana = stat.Skill('Arcana', self.Intelligence)
+        self.athletics = stat.Skill('Athletics', self.Strength)
+        self.deception = stat.Skill('Deception', self.Charisma)
+        self.history = stat.Skill('History', self.Intelligence)
+        self.insight = stat.Skill('Insight', self.Wisdom)
+        self.intimidation = stat.Skill('Intimidation', self.Charisma)
+        self.investigation = stat.Skill('Investigation', self.Intelligence)
+        self.medicine = stat.Skill('Medicine', self.Wisdom)
+        self.nature = stat.Skill('Nature', self.Intelligence)
+        self.perception = stat.Skill('Perception', self.Wisdom)
+        self.perfomance = stat.Skill('Perfomance', self.Charisma)
+        self.persuasion = stat.Skill('Persuasion', self.Charisma)
+        self.religion = stat.Skill('Religion', self.Intelligence)
+        self.sleight_of_hand = stat.Skill('Sleight_of_hand', self.Dexterity)
+        self.stealth = stat.Skill('Stealth', self.Dexterity)
+        self.survival = stat.Skill('Survival', self.Wisdom)
+
         pass

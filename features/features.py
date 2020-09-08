@@ -37,3 +37,28 @@ class Feature:
         """
         new_feature = ('UnknownFeature', (Feature,), args, kwargs)
         return new_feature
+
+
+class FeatureSelector(Feature):
+    """
+    A feature with multiple possible choices.
+    """
+    options = dict()
+    name = ''
+    source = ''
+
+    def __new__(t, owner, feature_choices=[]):
+        # Look for matching feature_choices
+        new_feat = Feature.__new__(Feature, owner=owner)
+        new_feat.__doc__ = t.__doc__
+        new_feat.name = t.name
+        new_feat.source = t.source
+        new_feat.needs_implementation = True
+        for selection in feature_choices:
+            if selection.lower() in t.options:
+                feat_class = t.options[selection.lower()]
+                if owner.has_feature(feat_class):
+                    continue
+                new_feat = feat_class(owner=owner)
+                new_feat.source = t.source
+        return new_feat
