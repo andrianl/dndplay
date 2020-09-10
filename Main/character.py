@@ -5,6 +5,7 @@ import Main.dice as dice
 import Main.race as race
 import Main.stats as stat
 import Main.weapon as weapon
+import sys
 
 
 class Character:
@@ -61,12 +62,12 @@ class Character:
         self.max_health_point = dice.Dice.roll([self.level, clss.hit_die])
         self.armor_class = stat.ArmorClass(armor_, armor.Armor)
 
-        self.Strength = stat.Ability('Strength', abilities[0])
-        self.Dexterity = stat.Ability('Dexterity', abilities[1])
-        self.Constitution = stat.Ability('Constitution', abilities[2])
-        self.Intelligence = stat.Ability('Intelligence', abilities[3])
-        self.Wisdom = stat.Ability('Wisdom', abilities[4])
-        self.Charisma = stat.Ability('Charisma', abilities[5])
+        self.Strength = stat.Ability(abilities[0])
+        self.Dexterity = stat.Ability(abilities[1])
+        self.Constitution = stat.Ability(abilities[2])
+        self.Intelligence = stat.Ability(abilities[3])
+        self.Wisdom = stat.Ability(abilities[4])
+        self.Charisma = stat.Ability(abilities[5])
 
         self.initiative = self.Dexterity
         self.speed = self.Race.speed
@@ -112,5 +113,7 @@ random_stats = [dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20]), di
                 dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20])]
 
 Andy = Character(race.Dwarf, clses.Barbarian, backgrounds.Soldier, 1, armor.ChainMail, weapon.Handaxe, random_stats)
-
-print(Andy)
+#
+# print(Andy)
+#
+# print(sys.getsizeof(Andy))

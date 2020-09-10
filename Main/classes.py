@@ -1,10 +1,10 @@
 from collections import defaultdict
 
 import Main.armor as armor
+import Main.stats
 import Main.stats as stat
 import Main.weapon as weapon
 import constants.dices as dice
-import Main.stats
 
 
 class CharClass:
