@@ -18,56 +18,56 @@ CharacterSheet.show()
 
 # Logic
 
-ui.cls_lbl.setText(f'Class: {char.Andy.clss.name}')
-ui.race_lbl.setText(f'Race: {char.Andy.Race.name}')
-ui.background_lbl.setText(f'Background: {char.Andy.background.name}')
+ui.cls_lbl.setText(f'Class: {char.character.clss.name}')
+ui.race_lbl.setText(f'Race: {char.character.Race.name}')
+ui.background_lbl.setText(f'Background: {char.character.background.name}')
 
 
 
-ui.initiative.setText(f'Initiative: {char.Andy.initiative}')
-ui.hp.setText(f'HP: {char.Andy.max_health_point}')
-ui.speed.setText(f'Speed: {char.Andy.speed}')
-ui.armor_class.setText(f'Armor Class: {char.Andy.armor_class}')
+ui.initiative.setText(f'Initiative: {char.character.initiative}')
+ui.hp.setText(f'HP: {char.character.max_health_point}')
+ui.speed.setText(f'Speed: {char.character.speed}')
+ui.armor_class.setText(f'Armor Class: {char.character.armor_class}')
 
 
 
-ui.strength_button.setText(f'Strength: {char.Andy.Strength.score}\nModificator: {char.Andy.Strength.modifier}')
-ui.dexterity_button.setText(f'Dexterity: {char.Andy.Dexterity.score}\nModificator: {char.Andy.Dexterity.modifier}')
-ui.constituion_button.setText(f'Constitution: {char.Andy.Constitution.score}\nModificator: {char.Andy.Constitution.modifier}')
-ui.intelligence_button.setText(f'Intelligence: {char.Andy.Intelligence.score}\nModificator: {char.Andy.Intelligence.modifier}')
-ui.wisdom_button.setText(f'Wisdom: {char.Andy.Wisdom.score}\nModificator: {char.Andy.Wisdom.modifier}')
-ui.charisma_button.setText(f'Charisma: {char.Andy.Charisma.score}\nModificator: {char.Andy.Charisma.modifier}')
+ui.strength_button.setText(f'Strength: {char.character.Strength.score}\nModificator: {char.character.Strength.modifier}')
+ui.dexterity_button.setText(f'Dexterity: {char.character.Dexterity.score}\nModificator: {char.character.Dexterity.modifier}')
+ui.constituion_button.setText(f'Constitution: {char.character.Constitution.score}\nModificator: {char.character.Constitution.modifier}')
+ui.intelligence_button.setText(f'Intelligence: {char.character.Intelligence.score}\nModificator: {char.character.Intelligence.modifier}')
+ui.wisdom_button.setText(f'Wisdom: {char.character.Wisdom.score}\nModificator: {char.character.Wisdom.modifier}')
+ui.charisma_button.setText(f'Charisma: {char.character.Charisma.score}\nModificator: {char.character.Charisma.modifier}')
 
 
 def strength_roll():
-    modifier = char.Andy.Strength.modifier
+    modifier = char.character.Strength.modifier
     d20 = dice.Dice.roll([1, 20])
     ui.dice_result.setText(f'D20 + Strength = {d20} + {modifier} = {d20 + modifier}')
 
 
 def dexterity_roll():
-    modifier = char.Andy.Dexterity.modifier
+    modifier = char.character.Dexterity.modifier
     d20 = dice.Dice.roll([1, 20])
     ui.dice_result.setText(f'D20 + Dexterity = {d20} + {modifier} = {d20 + modifier}')
 
 
 def constitution_roll():
-    modifier = char.Andy.Constitution.modifier
+    modifier = char.character.Constitution.modifier
     d20 = dice.Dice.roll([1, 20])
     ui.dice_result.setText(f'D20 + Constitution = {d20} + {modifier} = {d20 + modifier}')
 
 def intelligence_roll():
-    modifier = char.Andy.Intelligence.modifier
+    modifier = char.character.Intelligence.modifier
     d20 = dice.Dice.roll([1, 20])
     ui.dice_result.setText(f'D20 + Intelligence = {d20} + {modifier} = {d20 + modifier}')
 
 def wisdom_roll():
-    modifier = char.Andy.Wisdom.modifier
+    modifier = char.character.Wisdom.modifier
     d20 = dice.Dice.roll([1, 20])
     ui.dice_result.setText(f'D20 + Wisdom = {d20} + {modifier} = {d20 + modifier}')
 
 def charisma_roll():
-    modifier = char.Andy.Charisma.modifier
+    modifier = char.character.Charisma.modifier
     d20 = dice.Dice.roll([1, 20])
     ui.dice_result.setText(f'D20 + Charisma = {d20} + {modifier} = {d20 + modifier}')
 

@@ -112,7 +112,7 @@ Speed: {self.speed}
 random_stats = [dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(),
                 dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator()]
 
-Andy = Character(race.Dwarf, clses.Barbarian, backgrounds.Soldier, 1, armor.ChainMail, weapon.Handaxe, random_stats)
+character = Character(race.Dwarf, clses.Barbarian, backgrounds.Soldier, 1, armor.ChainMail, weapon.Handaxe, random_stats)
 #
 # print(Andy)
 #
