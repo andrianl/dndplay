@@ -52,19 +52,22 @@ class ArmorClass:
     def __init__(self, instance, armor):
         self.instance = instance
         self.armor = armor
-        pass
-
-    def __get__(self, instance, armor):
         if isinstance(instance, LightArmor):
             self.ac = instance.base_armor_class + Dexterity
         elif isinstance(instance, MediumArmor):
             self.ac = instance.base_armor_class + min(instance.dexterity_mod_max, Dexterity)
         elif isinstance(instance, HeavyArmor):
             self.ac = instance.base_armor_class
-        else:
-            pass
 
-        return self.ac
+    # def __get__(self, instance, armor):
+    #     if isinstance(instance, LightArmor):
+    #         self.ac = instance.base_armor_class + Dexterity
+    #     elif isinstance(instance, MediumArmor):
+    #         self.ac = instance.base_armor_class + min(instance.dexterity_mod_max, Dexterity)
+    #     elif isinstance(instance, HeavyArmor):
+    #         self.ac = instance.base_armor_class
+    #
+    #     return self.ac
 
 
 Strength = Ability(Dice.roll([1, D20]))

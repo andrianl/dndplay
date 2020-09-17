@@ -4,8 +4,8 @@ D20 = 20
 D4 = 4
 D6 = 6
 D8 = 8
-D12 = 12
 D10 = 10
+D12 = 12
 D100 = 100
 
 
@@ -28,7 +28,8 @@ class Dice:
 
     @staticmethod
     def random_stat_generator():
-        stat = sorted([Dice.roll([1, D6]), Dice.roll([1, D6]), Dice.roll([1, D6]), Dice.roll([1, D6])])
+        stat = sorted([Dice.roll([1, D6]), Dice.roll([1, D6]),
+                       Dice.roll([1, D6]), Dice.roll([1, D6])])
         return sum(stat) - stat[0]
 
     @staticmethod

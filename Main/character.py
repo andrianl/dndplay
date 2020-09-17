@@ -39,7 +39,7 @@ class Character:
     stealth = stat.Skill
     survival = stat.Skill
 
-    armor_class = stat.ArmorClass
+    armor_class = stat.ArmorClass.ac
 
     speed = 30
 
@@ -60,7 +60,7 @@ class Character:
         self.level = level
 
         self.max_health_point = dice.Dice.roll([self.level, clss.hit_die])
-        self.armor_class = stat.ArmorClass(armor_, armor.Armor)
+        self.armor_class = stat.ArmorClass(armor.ChainMail, armor.HeavyArmor).ac
 
         self.Strength = stat.Ability(abilities[0])
         self.Dexterity = stat.Ability(abilities[1])
@@ -69,7 +69,7 @@ class Character:
         self.Wisdom = stat.Ability(abilities[4])
         self.Charisma = stat.Ability(abilities[5])
 
-        self.initiative = self.Dexterity
+        self.initiative = self.Dexterity.modifier
         self.speed = self.Race.speed
 
         self.acrobatics = stat.Skill('Acrobatics', self.Dexterity)
@@ -109,8 +109,8 @@ Speed: {self.speed}
 """
 
 
-random_stats = [dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20]),
-                dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20]), dice.Dice.roll([1, dice.D20])]
+random_stats = [dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(),
+                dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator()]
 
 Andy = Character(race.Dwarf, clses.Barbarian, backgrounds.Soldier, 1, armor.ChainMail, weapon.Handaxe, random_stats)
 #
