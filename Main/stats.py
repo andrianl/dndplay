@@ -18,7 +18,7 @@ class Ability:
             return self.score
 
     def __add__(self, other):
-        return other+self.modifier
+        return other + self.modifier
 
     def __radd__(self, other):
         if other == 0:
@@ -72,9 +72,9 @@ class ArmorClass:
 
 Strength = Ability(Dice.roll([1, D20]))
 Dexterity = Ability(Dice.roll([1, D20]))
-Constitution = Ability( Dice.roll([1, D20]))
+Constitution = Ability(Dice.roll([1, D20]))
 Intelligence = Ability(Dice.roll([1, D20]))
-Wisdom = Ability( Dice.roll([1, D20]))
+Wisdom = Ability(Dice.roll([1, D20]))
 Charisma = Ability(Dice.roll([1, D20]))
 
 acrobatics = Skill('Acrobatics', Dexterity)

@@ -3,7 +3,7 @@ from collections import defaultdict
 import Main.armor as armor
 import Main.stats
 import Main.stats as stat
-import Main.weapon as weapon
+import Main.weapon as weapons
 import constants.dices as dice
 
 
@@ -39,7 +39,7 @@ class Barbarian(CharClass):
     name = 'Barbarian'
     hit_die = dice.D12
     primary_abilities = stat.Strength
-    weapon_proficiencies = (weapon.SimpleWeapon, weapon.MartialWeapon)
+    weapon_proficiencies = weapons.martial_weapons & weapons.simple_weapons
     armor_proficiencies = (armor.LightArmor, armor.MediumArmor)
     saving_throw_proficiencies = (stat.Strength, stat.Constitution)
     choose_skills = [stat.animal_handling, stat.athletics, stat.intimidation,

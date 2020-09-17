@@ -5,7 +5,6 @@ import Main.dice as dice
 import Main.race as race
 import Main.stats as stat
 import Main.weapon as weapon
-import sys
 
 
 class Character:
@@ -19,6 +18,8 @@ class Character:
     Intelligence = stat.Ability
     Wisdom = stat.Ability
     Charisma = stat.Ability
+
+    proficiency_bonus = 2
 
     acrobatics = stat.Skill
     animal_handling = stat.Skill
@@ -52,6 +53,8 @@ class Character:
     hp_hit_dice = []
 
     level = 1
+
+    weapons = []
 
     def __init__(self, race, clss, background, level, armor_, weapon, abilities=[]):
         self.Race = race
@@ -90,6 +93,9 @@ class Character:
         self.sleight_of_hand = stat.Skill('Sleight_of_hand', self.Dexterity)
         self.stealth = stat.Skill('Stealth', self.Dexterity)
         self.survival = stat.Skill('Survival', self.Wisdom)
+        self.weapons.append(weapon)
+
+
 
     def __str__(self):
         return f"""
@@ -112,7 +118,8 @@ Speed: {self.speed}
 random_stats = [dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(),
                 dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator(), dice.Dice.random_stat_generator()]
 
-character = Character(race.Dwarf, clses.Barbarian, backgrounds.Soldier, 1, armor.ChainMail, weapon.Handaxe, random_stats)
+char = Character(race.Dwarf, clses.Barbarian, backgrounds.Soldier, 1, armor.ChainMail, weapon.BattleAxe,
+                 random_stats)
 #
 # print(Andy)
 #

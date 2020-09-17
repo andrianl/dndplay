@@ -294,6 +294,50 @@ Modificator:+0</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QPushButton" name="attack_btn">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>50</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Attack Bonus
+0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="weapon_name">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>231</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Weapon</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="damage_btn">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>110</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Damage/Type
+1d4+0 type</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="personality">
     <property name="geometry">

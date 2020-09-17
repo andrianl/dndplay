@@ -7,12 +7,12 @@ class Armor:
     stealth_disadvantage = False
     weight = 0  # In lbs
 
-    def __init__(self, name, cost=0, base_armor_class=10, dexterity_mod_max = None, strength_required = None,
-                 stealth_disadvantage = False, weight=0):
+    def __init__(self, name, cost=0, base_armor_class=10, dexterity_mod_max=None, strength_required=None,
+                 stealth_disadvantage=False, weight=0):
         self.name = name
         self.cost = cost
-        self.base_armor_class=base_armor_class
-        self.dexterity_mod_max=dexterity_mod_max
+        self.base_armor_class = base_armor_class
+        self.dexterity_mod_max = dexterity_mod_max
         self.strength_required = strength_required
         self.stealth_disadvantage = stealth_disadvantage
         self.weight = weight
@@ -31,6 +31,7 @@ class HeavyArmor(Armor):
     dexterity_mod_max = None
     strength_required = 13
     stealth_disadvantage = True
+
 
 #
 # class LeatherArmor(LightArmor):
@@ -58,4 +59,4 @@ class HeavyArmor(Armor):
 #     weight = 55
 
 
-ChainMail = HeavyArmor(name='Chain Mail', cost = 75, weight=55, base_armor_class=16)
+ChainMail = HeavyArmor(name='Chain Mail', cost=75, weight=55, base_armor_class=16)
