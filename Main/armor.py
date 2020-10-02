@@ -36,4 +36,8 @@ class HeavyArmor(Armor):
     strength_required = 13
     stealth_disadvantage = True
 
+
+class Shield(Armor):
+    base_armor_class = 2
+
 #
