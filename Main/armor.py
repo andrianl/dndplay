@@ -40,4 +40,8 @@ class HeavyArmor(Armor):
 class Shield(Armor):
     base_armor_class = 2
 
-#
+
+light_armors = ()
+medium_armors = ()
+heavy_armors = ()
+shields = ()
