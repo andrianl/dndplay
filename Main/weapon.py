@@ -1,4 +1,5 @@
 import Main.stats as stat
+import Main.wage as coin
 
 
 class Ammunition:
@@ -12,7 +13,7 @@ class Ammunition:
 
 class Weapon:
     name = "Weapon"
-    cost = 0
+    cost = coin.Coin.cost
     base_damage = [1, 4]  # 1d4
     ability = stat.Ability.modifier
     simple = False
@@ -30,14 +31,16 @@ class Weapon:
     thrown = False
     versatile = False
 
-    def __init__(self, name, cost=0, damage=None, ability=stat.Strength, simple=False, martial=False, ammunition=None,
+    def __init__(self, name, cost=coin.Coin, damage=None, ability=stat.Strength, simple=False, martial=False,
+                 ammunition=None,
                  finesse=False,
                  damage_type='slashing', heavy=False, light=False, loading=0, range_=20, long_range=60,
                  reach=5, two_handed=False, thrown=False, versatile=False):
         if damage is None:
             damage = [1, 4]
         self.name = name
-        self.cost = cost
+        if isinstance(cost, coin.Coin):
+            self.cost = cost.cost
         self.base_damage = damage
         if isinstance(ability, stat.Ability):
             self.ability = ability
